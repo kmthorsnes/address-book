@@ -8,19 +8,23 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  data = {};
-  private apiUrl = 
-  'https://ca-adress-book.herukuapp.com/api/contacts';
+  private apiUrl = 'https://ca-address-book.herokuapp.com/api/contacts'; 
+  contacts: any[]; 
 
     constructor(private http: Http) {
-      this.getContacts().subscribe(data => {
-        console.log(data);
-      });
-    }
-    
-    getContacts() {
-      return this.http.get(this.apiUrl)
-        .map((res: Response) => res.json());
+   
+      this.http.get(this.apiUrl)
+               .map((response: Response) => response.json())
+               .subscribe(data => {
+                  console.log(data); 
+                  this.contacts = data.data; 
+               }); 
+              
     }
 }
+    
+    // getContacts() {
+    //   return this.http.get(this.apiUrl)
+    //     .map((res: Response) => res.json());
+//     }
+ 

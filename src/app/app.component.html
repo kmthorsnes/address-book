@@ -1,16 +1,15 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<ng-container class="container">
-  <div-class="card">
-    <div-class="image">
-      <img src="#"/>
+<ng-container *ngFor="let contact of contacts" class="container">
+    <div class="card">
+        <div class="image">
+            <img src="{{contact.attributes.image}}" />
+        </div>
+        <div class="content">
+            <div class="location">{{contact.attributes.location}}</div>
+            <h1>{{contact.attributes.name}}</h1>
+            <h2>{{contact.attributes.role}}, {{contact.attributes.company}}</h2>
+            <p>{{contact.attributes.info}}</p>
+            {{contact.attributes.email}} |
+            <a href="http://www.twitter.com/{{contact.attributes.twitter}}">@{{contact.attributes.twitter}}</a>
+        </div>
     </div>
-    <div class="content">
-      <div class="location">Gothenburg</div>
-      <h1>Karl-Magnus Thorsnes</h1>
-      <h2>Clown, Norway</h2>
-      <p>Karl-Magnus is lord of the idiots</p>
-      kmthorsnes@cool.com |
-      <a href="http://www.twitter.com/coolcool">@supercool</a>
-    </div>
-  </div>
 </ng-container>

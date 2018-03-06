@@ -22,9 +22,4 @@ export class AppComponent {
               
     }
 }
-    
-    // getContacts() {
-    //   return this.http.get(this.apiUrl)
-    //     .map((res: Response) => res.json());
-//     }
  

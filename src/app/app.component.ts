@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { ContactsService } from './Service/contacts.service';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +7,15 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private apiUrl = 'https://ca-address-book.herokuapp.com/api/contacts'; 
+  
   contacts: any[]; 
 
-    constructor(private http: Http) {
+    constructor(private contactsService: ContactsService) {
    
-      this.http.get(this.apiUrl)
-               .map((response: Response) => response.json())
-               .subscribe(data => {
-                  console.log(data); 
-                  this.contacts = data.data; 
+      this.contactsService
+          .all()
+          .subscribe(( {data}) => {
+            this.contacts = data; 
                }); 
               
     }

@@ -11,10 +11,9 @@ export class AppComponent {
   contacts: any[]; 
 
     constructor(private contactsService: ContactsService) {
-   
       this.contactsService
           .all()
-          .subscribe(( {data}) => {
+          .subscribe(({ data }) => {
             this.contacts = data; 
                }); 
               
